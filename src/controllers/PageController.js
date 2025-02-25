@@ -5,12 +5,13 @@
  */
 
 
-import userData from "../data/user.js";
-
+import User from "../models/User.js";
 import NavigationItem from "../models/NavigationItem.js";
 
 export const home = async (req, res) => {
   const menuItems = await NavigationItem.query();
+  const userData = await User.query().findById(1);
+  // return res.send(userData)
   // return res.send(navItems)
   const pageData = {
     title: "Home",
